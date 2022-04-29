@@ -4,7 +4,7 @@ import { Counter } from './features/counter/Counter';
 import './App.css';
 import {Route, Routes} from "react-router-dom";
 
-const StoreDemo = React.lazy(() => import("./pages/StoreDemo"));
+const StoreDemo = React.lazy(() => import("./pages/GeoViewer"));
 function App() {
   return (
       <Routes>
