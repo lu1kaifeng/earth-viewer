@@ -1,24 +1,18 @@
-import React, { Suspense } from 'react'
-import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import React from 'react';
+import logo from './logo.svg';
+import { Counter } from './features/counter/Counter';
+import './App.css';
+import {Route, Routes} from "react-router-dom";
 
-import { Navbar } from './components/Navbar'
-import { About } from './pages/About'
-
-const App: React.FC = () => {
-  const Earth = React.lazy( () => import("./components/EarthCanvas"));
+const StoreDemo = React.lazy(() => import("./pages/GeoViewer"));
+function App() {
   return (
-      <BrowserRouter>
-        <Suspense fallback={<div>Loading...</div>}>
-          <Navbar />
-          <div className="container">
-            <Switch>
-              <Route path="/" component={Earth} exact />
-              <Route path="/about" component={About} />
-            </Switch>
-          </div>
-        </Suspense>
-      </BrowserRouter>
-  )
+      <Routes>
+          <Route path="/" element={<React.Suspense fallback={<div>loading</div>}>
+            <StoreDemo />
+        </React.Suspense>} />
+      </Routes>
+  );
 }
 
-export default App
+export default App;
