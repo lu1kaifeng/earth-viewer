@@ -1,15 +1,25 @@
 import React, {useEffect, useRef} from "react";
 import { Map,Scene } from '@esri/react-arcgis';
 import styles from "./GeoViewer.module.css"
+import {CustomLayer} from "../gis/CustomLayer";
+import {loadModules} from "esri-loader";
+
 const GeoViewer : React.FC=()=>{
-    const canvasRef = useRef(null);
+    const customLayer = new CustomLayer();
     useEffect(()=>{
-        if(canvasRef!==null){
-            console.log()
-        }
+        (async ()=>{
+            await loadModules(["esri/Map",
+                "esri/request",
+                "esri/Color",
+                "esri/views/SceneView",
+                "esri/widgets/LayerList",
+                "esri/layers/BaseTileLayer"])
+        })()
+
+console.log(customLayer)
     })
     return (
-        <Map mapProperties={{layers:""}} className={styles.map}/>
+        <Map mapProperties={{layers:[customLayer]}} className={styles.map}/>
     )
 }
 
