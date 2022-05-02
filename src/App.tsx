@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import { Counter } from './features/counter/Counter';
 import './App.css';
 import {Route, Routes} from "react-router-dom";
-import {CustomLayer} from "./gis/CustomLayer";
+import {SatLayer} from "./gis/Layers";
 
 const StoreDemo = React.lazy(() => import("./pages/GeoViewer"));
 
