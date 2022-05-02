@@ -191,11 +191,6 @@ module.exports = function (webpackEnv) {
     mode: isEnvProduction ? 'production' : isEnvDevelopment && 'development',
     // Stop compilation early in production
     bail: isEnvProduction,
-    devServer: {
-      proxy:{
-        '/appmaptile':'http://webst04.is.autonavi.com/appmaptile'
-      }
-    },
     devtool: isEnvProduction
       ? shouldUseSourceMap
         ? 'source-map'
