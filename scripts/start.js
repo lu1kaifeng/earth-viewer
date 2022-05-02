@@ -10,7 +10,7 @@ process.env.NODE_ENV = 'development';
 process.on('unhandledRejection', err => {
   throw err;
 });
-
+process.env.NODE_ENV = 'development';
 // Ensure environment variables are read.
 require('../config/env');
 
@@ -116,7 +116,8 @@ checkBrowsers(paths.appPath, isInteractive)
     // Launch WebpackDevServer.
     devServer.startCallback(() => {
       if (isInteractive) {
-        clearConsole();
+        console.log(serverConfig)
+        //clearConsole();
       }
 
       if (env.raw.FAST_REFRESH && semver.lt(react.version, '16.10.0')) {
